@@ -1,12 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <div>
-        This is a navbar.
-    </div>
+    <div className='h-[50px] w-full bg-gray-700 text-white p-[10px]'>Cryptify</div>
   )
 }
-
-export default Navbar
