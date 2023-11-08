@@ -1,12 +1,16 @@
 import './App.css'
-import Field from './components/Field'
-import Navbar from './components/Navbar'
-// import { Route, Routes, Router } from 'react-router'
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+import Main from './pages/Main'
+import About from './pages/About'
 function App() {
   return (
     <>
-      <Navbar />
-      <Field />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </Router>
     </>
   )
 }
