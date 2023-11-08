@@ -1,21 +1,43 @@
 import React, { useState } from "react";
-import CryptoJS from "crypto-js";
-
+import { des } from "../utilities/des";
+import { aes } from "../utilities/aes";
+import { blowfish } from "../utilities/blowfish";
+import { serpent } from "../utilities/serpent";
+import { skipjack } from "../utilities/skipjack";
 export default function Field() {
 
+  const [algorithm, setAlgo] = useState(null);
   const [btnText, setBtnText] = useState("Encode");
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [secretKey, setSecretKey] = useState("");
+
+  const loadAlgo = (algorithmName) => {
+    setAlgo(algorithmName);
+  }
+
   const handleClick = () => {
-    if(btnText === "Encode"){
-      const encryptedText = CryptoJS.DES.encrypt(inputText, secretKey).toString();
+    if (algorithm === "des") {
+      const encryptedText = des(inputText, secretKey, btnText);
       setOutputText(encryptedText);
     }
-    else{
-      const decryptedText = CryptoJS.DES.decrypt(inputText, secretKey).toString(CryptoJS.enc.Utf8);
-      setOutputText(decryptedText);
+    else if (algorithm === "aes") {
+      const encryptedText = aes(inputText, secretKey, btnText);
+      setOutputText(encryptedText);
     }
+    else if (algorithm === "serpent") {
+      const encryptedText = serpent(inputText, secretKey, btnText);
+      setOutputText(encryptedText);
+    }
+    else if (algorithm === "blowfish") {
+      const encryptedText = blowfish(inputText, secretKey, btnText);
+      setOutputText(encryptedText);
+    }
+    else if (algorithm === "skipjack") {
+      const encryptedText = skipjack(inputText, secretKey, btnText);
+      setOutputText(encryptedText);
+    }
+
   }
 
   return (
@@ -27,18 +49,16 @@ export default function Field() {
 
         <div className="border-gray-300 flex justify-between">
           <ul className="flex gap-4">
-          <button
-              className={`hover:bg-gray-200 p-2 rounded-t-lg ${
-                btnText === "Encode" ? "bg-gray-200" : ""
-              }`}
+            <button
+              className={`hover:bg-gray-200 p-2 ${btnText === "Encode" ? "bg-gray-200" : ""
+                }`}
               onClick={() => setBtnText("Encode")}
             >
               Encryption
             </button>
             <button
-              className={`hover:bg-gray-200 p-2 rounded-t-lg ${
-                btnText === "Decode" ? "bg-gray-200" : ""
-              }`}
+              className={`hover:bg-gray-200 p-2 ${btnText === "Decode" ? "bg-gray-200" : ""
+                }`}
               onClick={() => setBtnText("Decode")}
             >
               Decryption
@@ -49,22 +69,28 @@ export default function Field() {
             type="text"
             placeholder="Secret Key"
             value={secretKey}
-            onChange={(e) => setSecretKey(e.target.value)} // Added this line
+            onChange={(e) => setSecretKey(e.target.value)}
           />
         </div>
 
         <div className="border-b-2 border-gray-300 bg-gray-200">
-          <ul className="flex p-4 gap-4">
+          <ul className="flex p-4 gap-4 items-center">
             Algorithms:
-            <li>DES</li>
-            <li>AES</li>
-            <li>Blowfish</li>
-            <li>Serpent</li>
-            <li>Skipjack</li>
+            <button className={`${algorithm === "des" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""
+              }`} onClick={() => loadAlgo("des")}>DES</button>
+            <button className={`${algorithm === "aes" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""
+              }`} onClick={() => loadAlgo("aes")}>AES</button>
+            <button className={`${algorithm === "blowfish" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""
+              }`} onClick={() => loadAlgo("blowfish")}>Blowfish</button>
+            <button className={`${algorithm === "serpent" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""
+              }`} onClick={() => loadAlgo("serpent")}>Serpent</button>
+            <button className={`${algorithm === "skipjack" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""
+              }`} onClick={() => loadAlgo("skipjack")}>Skipjack</button>
           </ul>
         </div>
 
         {/* Encryption/Decryption field */}
+
         <div className="w-full h-[80%]  flex">
           <div className="w-1/2  h-full border-solid border-gray-400 border-r-[2px] overflow-hidden relative">
             <textarea
