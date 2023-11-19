@@ -49,8 +49,8 @@ export default function Field() {
   };
 
   return (
-    <div className="absolute h-[650px] w-[85%] flex justify-center items-center z-50 top-[500px]">
-      <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white shadow-gray-400 rounded-md overflow-hidden">
+    <div className="relative h-[500px] w-[85%] flex justify-center items-center z-50">
+      <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white shadow-gray-400 rounded-md overflow-hidden top-[-100px]">
 
         {/* Algorithms */}
         <div className="border-gray-300 flex justify-between">
@@ -117,20 +117,20 @@ export default function Field() {
         </div>
       </div>
       <IoCopyOutline
-        className="absolute text-2xl bottom-2 right-10 m-2 cursor-pointer"
+        className="absolute text-2xl top-[430px] right-10 m-2 cursor-pointer"
         onMouseEnter={() => setIsHoveredCopy(true)}
         onMouseLeave={() => setIsHoveredCopy(false)}
         onClick={handleCopy}
       />
       <MdLayersClear
-        className="absolute bottom-2 m-2 right-0 text-2xl cursor-pointer"
+        className="absolute top-[430px] m-2 right-0 text-2xl cursor-pointer"
         onMouseEnter={() => setIsHoveredClear(true)}
         onMouseLeave={() => setIsHoveredClear(false)}
         onClick={handleClear}
       />
       <div>
-        {isHoveredCopy && <h2 className="absolute bottom-11 text-sm right-12">Copy</h2>}
-        {isHoveredClear && <h2 className="absolute bottom-11 text-sm right-0">Clear</h2>}
+        {isHoveredCopy && <h2 className="absolute top-[415px] text-sm right-12">Copy</h2>}
+        {isHoveredClear && <h2 className="absolute top-[415px] text-sm right-0">Clear</h2>}
       </div>
     </div>
   );
