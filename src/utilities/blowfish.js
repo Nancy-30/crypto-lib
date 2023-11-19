@@ -1,4 +1,5 @@
 import { Blowfish } from "egoroof-blowfish";
+// import { Blowfish } from 'blowfish-node'
 
 export function blowfish(inputText, secretKey, btnText) {
   const bf = new Blowfish(secretKey, Blowfish.MODE.ECB, Blowfish.PADDING.NULL);
