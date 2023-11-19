@@ -4,7 +4,8 @@ import { aes } from "../utilities/aes";
 import { blowfish } from "../utilities/blowfish";
 import { serpent } from "../utilities/serpent";
 import { skipjack } from "../utilities/skipjack";
-
+import { IoCopyOutline } from "react-icons/io5";
+import { MdLayersClear } from "react-icons/md";
 
 export default function Field() {
 
@@ -13,6 +14,10 @@ export default function Field() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [secretKey, setSecretKey] = useState("");
+
+  // hover icons
+  const [isHoveredCopy, setIsHoveredCopy] = useState(false);
+  const [isHoveredClear, setIsHoveredClear] = useState(false);
 
   const loadAlgo = (algorithmName) => {
     setAlgo(algorithmName);
@@ -117,8 +122,18 @@ export default function Field() {
               value={outputText}
               readOnly
             />
+
           </div>
+
         </div>
+
+      </div>
+      <IoCopyOutline className="absolute text-2xl bottom-2 right-10 m-2 cursor-pointer" onMouseEnter={() => setIsHoveredCopy(true)} onMouseLeave={() => setIsHoveredCopy(false)} />
+      <MdLayersClear className="absolute bottom-2 m-2 right-0 text-2xl cursor-pointer" onMouseEnter={() => setIsHoveredClear(true)} onMouseLeave={() => setIsHoveredClear(false)} />
+
+      <div>
+        {isHoveredCopy && <h2 className="absolute bottom-11 text-sm right-12">Copy</h2>}
+        {isHoveredClear && <h2 className="absolute bottom-11 text-sm right-0">Clear</h2>}
       </div>
     </div>
   );
