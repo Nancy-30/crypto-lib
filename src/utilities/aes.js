@@ -1,13 +1,14 @@
-import CryptoJS from "crypto-js";
+import CryptoJS from 'crypto-js';
 
-export function aes(inputText, secretKey, btnText) {
-  if (btnText === "Encode") {
-    const encryptedText = CryptoJS.AES.encrypt(inputText, secretKey).toString();
-    return encryptedText;
-  } else {
-    const decryptedText = CryptoJS.AES.decrypt(inputText, secretKey).toString(
-      CryptoJS.enc.Utf8
-    );
-    return decryptedText;
+export const aes = (inputText, secretKey, btnText) => {
+  let encryptedText = '';
+
+  if (btnText === 'Encode') {
+    encryptedText = CryptoJS.AES.encrypt(inputText, secretKey).toString();
+  } else if (btnText === 'Decode') {
+    const decryptedBytes = CryptoJS.AES.decrypt(inputText, secretKey);
+    encryptedText = decryptedBytes.toString(CryptoJS.enc.Utf8);
   }
-}
+
+  return encryptedText;
+};

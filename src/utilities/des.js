@@ -1,15 +1,19 @@
-import CryptoJS from "crypto-js";
+import CryptoJS from 'crypto-js';
 
-export function des(inputText, secretKey, btnText) {
-  if (btnText === "Encode") {
-    const encryptedText = CryptoJS.DES.encrypt(inputText, secretKey).toString();
-    console.log(encryptedText);
-    return encryptedText;
-  } else {
-    const decryptedText = CryptoJS.DES.decrypt(inputText, secretKey).toString(
-      CryptoJS.enc.Utf8
-    );
-    console.log(decryptedText);
-    return decryptedText;
+export const des = (inputText, secretKey, btnText) => {
+  let encryptedText = '';
+
+  if (btnText === 'Encode') {
+    if(secretKey == ''){
+      encryptedText = ''
+    }
+    else{
+      encryptedText = CryptoJS.DES.encrypt(inputText, secretKey).toString(); 
+    }
+  } else if (btnText === 'Decode') {
+    const decryptedBytes = CryptoJS.DES.decrypt(inputText, secretKey);
+    encryptedText = decryptedBytes.toString(CryptoJS.enc.Utf8);
   }
-}
+
+  return encryptedText;
+};
