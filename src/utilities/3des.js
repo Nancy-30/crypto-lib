@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 
-export const aes = (inputText, secretKey, btnText) => {
+export const three_des = (inputText, secretKey, btnText) => {
   let encryptedText = '';
 
   if (btnText === 'Encode') {
@@ -8,10 +8,10 @@ export const aes = (inputText, secretKey, btnText) => {
       encryptedText = ''
     }
     else{
-      encryptedText = CryptoJS.AES.encrypt(inputText, secretKey).toString();
+      encryptedText = CryptoJS.TripleDES.encrypt(inputText, secretKey).toString();
     }
   } else if (btnText === 'Decode') {
-    const decryptedBytes = CryptoJS.AES.decrypt(inputText, secretKey);
+    const decryptedBytes = CryptoJS.TripleDES.decrypt(inputText, secretKey);
     encryptedText = decryptedBytes.toString(CryptoJS.enc.Utf8);
   }
 
