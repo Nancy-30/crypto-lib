@@ -4,6 +4,8 @@ import { aes } from "../utilities/aes";
 import { blowfish } from "../utilities/blowfish";
 import { serpent } from "../utilities/serpent";
 import { skipjack } from "../utilities/skipjack";
+
+
 export default function Field() {
 
   const [algorithm, setAlgo] = useState(null);
@@ -41,9 +43,9 @@ export default function Field() {
   }
 
   return (
-    <div className="h-[650px] w-full flex justify-center items-center bg-gray-200">
+    <div className="absolute h-[650px] w-[85%] flex justify-center items-center z-50 top-[500px]">
 
-      <div className="h-[500px] w-[85%] m-[10px] flex flex-col shadow-xl bg-white shadow-gray-400 rounded-md overflow-hidden">
+      <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white shadow-gray-400 rounded-md overflow-hidden">
 
         {/* Algorithms */}
 
