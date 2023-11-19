@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { des } from "../utilities/des";
 import { aes } from "../utilities/aes";
 import { blowfish } from "../utilities/blowfish";
@@ -19,7 +19,7 @@ export default function Field() {
 
   const loadAlgo = (algorithmName) => {
     setAlgo(algorithmName);
-  }
+  };
 
   const handleClick = () => {
     let encryptedText = "";
@@ -33,7 +33,20 @@ export default function Field() {
       encryptedText = blowfish(inputText, secretKey, btnText);
     }
     setOutputText(encryptedText);
-  }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(outputText).then(() => {
+      console.log("Text copied to clipboard:", outputText);
+    }).catch((err) => {
+      console.error("Unable to copy text to clipboard:", err);
+    });
+  };
+
+  const handleClear = () => {
+    setOutputText("");
+    setBtnText("Encode");
+  };
 
   return (
     <div className="absolute h-[650px] w-[85%] flex justify-center items-center z-50 top-[500px]">
@@ -41,7 +54,7 @@ export default function Field() {
 
         {/* Algorithms */}
         <div className="border-gray-300 flex justify-between">
-          <ul className="flex gap-4">
+          <ul className="flex">
             <button
               className={`hover:bg-gray-200 p-2 ${btnText === "Encode" ? "bg-gray-200" : ""}`}
               onClick={() => setBtnText("Encode")}
@@ -93,21 +106,28 @@ export default function Field() {
           </div>
           <div className="w-1/2  h-full border-solid border-gray-400 border-l-[2px] overflow-hidden">
             <textarea
+              id="textarea"
               className="h-full w-full p-[6px] focus:outline-none"
               type="text"
               placeholder="Result..."
               value={outputText}
               readOnly
             />
-
           </div>
-
         </div>
-
       </div>
-      <IoCopyOutline className="absolute text-2xl bottom-2 right-10 m-2 cursor-pointer" onMouseEnter={() => setIsHoveredCopy(true)} onMouseLeave={() => setIsHoveredCopy(false)} />
-      <MdLayersClear className="absolute bottom-2 m-2 right-0 text-2xl cursor-pointer" onMouseEnter={() => setIsHoveredClear(true)} onMouseLeave={() => setIsHoveredClear(false)} />
-
+      <IoCopyOutline
+        className="absolute text-2xl bottom-2 right-10 m-2 cursor-pointer"
+        onMouseEnter={() => setIsHoveredCopy(true)}
+        onMouseLeave={() => setIsHoveredCopy(false)}
+        onClick={handleCopy}
+      />
+      <MdLayersClear
+        className="absolute bottom-2 m-2 right-0 text-2xl cursor-pointer"
+        onMouseEnter={() => setIsHoveredClear(true)}
+        onMouseLeave={() => setIsHoveredClear(false)}
+        onClick={handleClear}
+      />
       <div>
         {isHoveredCopy && <h2 className="absolute bottom-11 text-sm right-12">Copy</h2>}
         {isHoveredClear && <h2 className="absolute bottom-11 text-sm right-0">Clear</h2>}
