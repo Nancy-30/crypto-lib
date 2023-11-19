@@ -2,7 +2,6 @@ import React from 'react'
 import Field from '../components/Field'
 import Navbar from '../components/Navbar'
 import Instructions from '../components/Instructions'
-import BackgroundDesign from '../components/BackgroundDesign'
 
 export default function Main() {
     return (
