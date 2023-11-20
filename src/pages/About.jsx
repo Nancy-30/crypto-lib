@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import AES from '../components/AES';
 import BlowFish from '../components/BlowFish';
 import TrippleDES from '../components/TrippleDES';
-import cryptify from '../assets/test.png';
+import cryptify from '../assets/logo.png';
 export default function About() {
     const [algo, setAlgo] = useState("");
     const handleAlgo = (algoName) => {
