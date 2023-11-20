@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Test from '../assets/testing.png'
+import Test from '../assets/homeImg.png'
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import { Link, NavLink } from 'react-router-dom'
 import "./Instruction.css"
-import cryptify from '../assets/test.png'
+import cryptify from '../assets/logo.png'
 
 export default function Instructions() {
     // const [isLoaded, setIsLoaded] = useState(false);
