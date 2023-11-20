@@ -50,10 +50,10 @@ export default function Field() {
 
   return (
     <div className="relative h-[500px] w-[85%] flex justify-center items-center z-50">
-      <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white shadow-gray-400 rounded-md overflow-hidden top-[-100px]">
+      <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white/80 backdrop-blur shadow-gray-400 rounded-md overflow-hidden top-[-100px]">
 
         {/* Algorithms */}
-        <div className="border-gray-300 flex justify-between">
+        <div className="border-gray-300 flex justify-between ">
           <ul className="flex">
             <button
               className={`hover:bg-gray-200 p-2 ${btnText === "Encode" ? "bg-gray-200" : ""}`}
@@ -69,7 +69,7 @@ export default function Field() {
             </button>
           </ul>
           <input
-            className="m-2 p-2 focus:outline-none"
+            className="m-2 p-2 focus:outline-none placeholder-slate-600 bg-transparent background-blur"
             type="text"
             placeholder="Secret Key"
             value={secretKey}
@@ -79,7 +79,7 @@ export default function Field() {
 
         <div className="border-b-2 border-gray-300 bg-gray-200">
           <ul className="flex p-4 gap-4 items-center">
-            Algorithms:
+            {/* Algorithms: */}
             <button className={`${algorithm === "des" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""}`} onClick={() => loadAlgo("des")}>DES</button>
             <button className={`${algorithm === "aes" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""}`} onClick={() => loadAlgo("aes")}>AES</button>
             <button className={`${algorithm === "blowfish" ? "shadow-gray-800 shadow-sm w-[80px] p-2 rounded-md" : ""}`} onClick={() => loadAlgo("blowfish")}>Blowfish</button>
