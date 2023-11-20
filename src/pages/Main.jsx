@@ -3,6 +3,7 @@ import Field from '../components/Field'
 import Instructions from '../components/Instructions'
 import Footer from '../components/Footer'
 
+
 export default function Main() {
     return (
         <div className='font-mono'>

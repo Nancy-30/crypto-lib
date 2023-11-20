@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AES from '../components/AES';
 import BlowFish from '../components/BlowFish';
 import TrippleDES from '../components/TrippleDES';
+import cryptify from '../assets/test.png';
 
 export default function About() {
     const [algo, setAlgo] = useState("DES");
@@ -15,7 +16,7 @@ export default function About() {
 
         <div className='h-[707px] w-full z-10 bg-gradient-to-br from-sky-800 to-emerald-600 text-white p-4 font-mono' >
             <div>
-                <Link to="/"><h1 className='font-bold text-xl font-serif absolute'>Cryptify</h1></Link>
+            <Link to="/"><img className='h-14' src={cryptify} alt="" /></Link>
                 <ul className='flex items-center justify-center gap-40'>
                     <li className='cursor-pointer' onClick={() => handleAlgo("DES")}>
                         DES

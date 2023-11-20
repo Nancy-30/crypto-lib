@@ -3,6 +3,7 @@ import Test from '../assets/testing.png'
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import { Link, NavLink } from 'react-router-dom'
 import "./Instruction.css"
+import cryptify from '../assets/test.png'
 
 export default function Instructions() {
     // const [isLoaded, setIsLoaded] = useState(false);
@@ -16,10 +17,10 @@ export default function Instructions() {
 
 
     return (
-        <div className='h-[650px] w-full z-10 bg-gradient-to-br from-sky-800 to-emerald-600'>
+        <div className='h-[650px] w-full py-4 z-10 bg-gradient-to-br from-sky-800 to-emerald-600'>
             {/* navbar */}
             <div className='h-[50px] w-full text-white pl-[30px] flex justify-between items-center'>
-                <Link to="/"><h1 className='font-bold text-xl font-serif'>Cryptify</h1></Link>
+                <Link to="/"><img className='h-14' src={cryptify} alt="" /></Link>
                 <NavLink to="/about" activeClassName="bg-green-400">< AiOutlineInfoCircle className='text-lg mr-[50px] cursor-pointer' /></NavLink>
             </div>
 
