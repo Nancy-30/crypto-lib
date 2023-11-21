@@ -1,7 +1,11 @@
 import React from 'react';
 import Table from './Table';
 
+
+
 export default function Tabledata() {
+
+
   const columns = [
     { Header: 'Factor', accessor: 'Factor' },
     { Header: 'AES', accessor: 'AES' },
