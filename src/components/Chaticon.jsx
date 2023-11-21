@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import chatIcon from "../assets/Chatbot.png";
+import chatIcon from "../assets/logo.png";
 import ChatBot from './ChatBot';
 import { RxCross1 } from "react-icons/rx";
 
