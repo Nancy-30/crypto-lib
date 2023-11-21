@@ -1,5 +1,5 @@
 import React from 'react'
-import Blowfishimg from "../../assets/Blowfish.png"
+import Blowfishimg from "../assets/Blowfish.png"
 export default function BlowFish() {
     return (
         <div className='absolute w-[90%] h-[550px] bg-white right-[5%] top-[15%] p-3 rounded-md shadow-md text-black'>
