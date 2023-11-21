@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "blowfish-node": "^1.1.4",
+    "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
     "egoroof-blowfish": "^4.0.1",
     "node-forge": "^1.3.1",
