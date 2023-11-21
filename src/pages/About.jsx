@@ -7,6 +7,8 @@ import BlowFish from '../components/descriptions/BlowFish';
 import TrippleDES from '../components/descriptions/TrippleDES';
 import Blockcipher from '../components/descriptions/Blockcipher';
 import cryptify from '../assets/logo.png';
+
+
 export default function About() {
     const [algo, setAlgo] = useState("Blockcipher");
     const handleAlgo = (algoName) => {
