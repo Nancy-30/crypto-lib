@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "blowfish-node": "^1.1.4",
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
