@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { des } from "../utilities/des";
 import { aes } from "../utilities/aes";
 import { blowfish } from "../utilities/blowfish";
 import { IoCopyOutline } from "react-icons/io5";
 import { MdLayersClear } from "react-icons/md";
 import { three_des } from "../utilities/3des";
+import { generateRandomKey } from "../utilities/keygen";
 
 export default function Field() {
   const [algorithm, setAlgo] = useState(null);
@@ -48,6 +49,24 @@ export default function Field() {
     setBtnText("Encode");
   };
 
+  const handleGenerateKey = async () => {
+    let newSecretKey = "";
+  
+    if (algorithm === "des") {
+      newSecretKey = await generateRandomKey(7);
+    } else if (algorithm === "aes") {
+      newSecretKey = await generateRandomKey(16) || await generateRandomKey(24) || await generateRandomKey(32);
+    } else if (algorithm === "blowfish") {
+      newSecretKey = await generateRandomKey(56);
+    } else if (algorithm === "3des") {
+      newSecretKey = await generateRandomKey(21) || await generateRandomKey(14);
+    }
+  
+    setSecretKey(newSecretKey);
+  };
+  
+  
+
   return (
     <div className="relative h-[500px] w-[85%] flex justify-center items-center z-50">
       <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white/80 backdrop-blur shadow-gray-400 rounded-md overflow-hidden top-[-100px]">
@@ -68,6 +87,9 @@ export default function Field() {
               Decryption
             </button>
           </ul>
+          <button className={`hover:bg-gray-200 p-2`} onClick={handleGenerateKey}>
+            Generate Key
+          </button>
           <input
             className="m-2 p-2 focus:outline-none placeholder-slate-600 bg-transparent background-blur"
             type="text"
