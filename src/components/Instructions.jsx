@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Test from '../assets/homeImg.png'
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import { Link, NavLink } from 'react-router-dom'
@@ -6,15 +6,6 @@ import "./Instruction.css"
 import cryptify from '../assets/logo.png'
 
 export default function Instructions() {
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => {
-    //         setIsLoaded(true);
-    //     }, 500);
-
-    //     return () => clearTimeout(timeout);
-    // }, []);
-
 
     return (
         <div className='h-[650px] w-full py-4 z-10 bg-gradient-to-br from-sky-800 to-emerald-600'>
