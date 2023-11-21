@@ -4,7 +4,7 @@ export const des = (inputText, secretKey, btnText) => {
   let encryptedText = '';
 
   // Check for key length
-  const isValidKey = secretKey.length === 7; // DES uses a 64-bit (8-byte) key
+  const isValidKey = secretKey.length === 7; 
 
   if (!isValidKey) {
     return 'Invalid key length. Please enter a 56-bit key.';
