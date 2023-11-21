@@ -1,5 +1,5 @@
 import React from 'react'
-import TripleDES from "../assets/TripleDES.jpg"
+import TripleDES from "../../assets/TripleDES.jpg"
 
 export default function TrippleDES() {
     return (

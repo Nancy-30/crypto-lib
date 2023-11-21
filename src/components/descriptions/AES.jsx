@@ -1,5 +1,5 @@
 import React from 'react'
-import AESimg from "../assets/AES1.png"
+import AESimg from "../../assets/AES1.png"
 export default function AES() {
     return (
         <div className='absolute w-[90%] h-[580px] bg-white right-[5%] top-[15%] p-3 rounded-md shadow-md text-black'>
