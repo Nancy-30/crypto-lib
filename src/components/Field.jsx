@@ -68,7 +68,7 @@ export default function Field() {
   
 
   return (
-    <div className="relative h-[500px] w-[85%] flex justify-center items-center z-50">
+    <div className="relative h-[500px] w-[85%] flex justify-center items-center z-30">
       <div className="absolute h-[500px] w-full m-[10px] flex flex-col shadow-xl bg-white/80 backdrop-blur shadow-gray-400 rounded-md overflow-hidden top-[-100px]">
 
         {/* Algorithms */}
