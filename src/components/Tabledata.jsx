@@ -7,7 +7,7 @@ export default function Tabledata() {
     { Header: 'AES', accessor: 'AES' },
     { Header: 'DES', accessor: 'DES' },
     { Header: '3DES', accessor: 'tDES' },
-    { Header: 'Blowfish', accessor: 'Blowfish' },
+    { Header: 'Blowfish', accessor: 'Blowfish'  },
   ];
 
   const data = [
