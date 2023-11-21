@@ -10,7 +10,7 @@ import ChatBot from '../components/Chaticon'
 export default function Main() {
     return (
         <div className='font-mono select-none'>
-            <ChatBot/>
+            {/* <ChatBot/> */}
             <div className='bg-gray-200 flex flex-col justify-center items-center'>
                 <Instructions />
                 <Field />
