@@ -15,7 +15,7 @@ export default function ChatBot() {
 
     setChat((prevData) => [
       ...prevData,
-      { question: state, answer: res?.data?.message[0] },
+      { question: state, answer: res?.data?.message },
     ]);
     setState("");
   };

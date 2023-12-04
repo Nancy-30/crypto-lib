@@ -25,9 +25,10 @@ const chat = (req, res) => {
             })
             .then((result) => {
                 const outputText = result[0].candidates[0].output;
-                const paragraphs = outputText.split('\n'); 
-                console.log(paragraphs);
-                res.status(200).json({ message: paragraphs });
+                // const paragraphs = outputText.split('\n'); 
+                // console.log(paragraphs);
+                console.log(outputText);
+                res.status(200).json({ message: outputText });
             });
     } catch (error) {
         res.status(500).json({ message: error });
