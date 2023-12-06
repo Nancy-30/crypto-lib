@@ -3,6 +3,12 @@ import CryptoJS from 'crypto-js';
 export const blowfish = (inputText, secretKey, btnText) => {
   let encryptedText = '';
 
+  const isValidKey = secretKey.length; 
+
+  if (secretKey.length < 4 || secretKey.length > 56) {
+    return 'Invalid key length. Please enter a key between 4 and 56 bytes.';
+  }
+
   if (btnText === 'Encode') {
     if(secretKey == ''){
       encryptedText = ''
