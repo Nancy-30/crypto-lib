@@ -2,7 +2,7 @@ import React from 'react'
 import Test from '../assets/homeImg.png'
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import { Link, NavLink } from 'react-router-dom'
-import "./Instruction.css"
+import "./Styles/Instruction.css"
 import cryptify from '../assets/logo.png'
 
 export default function Instructions() {
